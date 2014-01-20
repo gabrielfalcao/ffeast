@@ -18,3 +18,4 @@ python-bcrypt==0.3.2
 plant==0.1.1
 pygeoip==0.3.0
 webassets-recess==0.0.0
+https://codeload.github.com/abourget/gevent-socketio/tar.gz/HEAD
