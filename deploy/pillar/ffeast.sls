@@ -32,3 +32,4 @@ environment:
   REDIS_URI: "redis://localhost:6379"
   PATH: "/srv/venv/bin:$PATH"
   PYTHONPATH: "/srv/app:/src/venv:/src/venv/lib/python2.7:$PYTHONPATH"
+  SQLALCHEMY_DATABASE_URI: "mysql://root@localhost/ffeast"
