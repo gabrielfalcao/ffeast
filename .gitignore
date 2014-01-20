@@ -21,3 +21,4 @@ ffeast/static/vendor/jquery
 ffeast/static/vendor/socket.io
 ffeast/static/.webassets-cache
 nohup.out
+.vagrant/
