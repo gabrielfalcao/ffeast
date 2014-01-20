@@ -28,6 +28,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.gui = false
   end
 
+  config.vm.provider :aws do |aws, override|
+
+    aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
+    aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+    aws.keypair_name = "weedlabs-master"
+
+    aws.ami = "ami-a73264ce"
+    aws.security_groups = ['sg-b5e0a7de', 'sg-7580be1e']
+
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "~/.ssh/weedlabs-master.pem"
+  end
 end
 
 

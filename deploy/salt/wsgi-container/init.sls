@@ -64,9 +64,24 @@ webapp:
 {{user}}:
   user.present
 
-/home/{{ user }}/.ssh/authorized_keys:
-  file.managed:
-    - source: https://github.com/{{ user }}.keys
+/home/{{ user }}/.ssh:
+  file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode: 755
+    - makedirs: True
+
+
+    - source:
     - file_mode: 600
     - makedirs: true
+
+
+{{ user }}-keys:
+  cmd.run:
+    - name: curl https://github.com/{{ user }}.keys > /home/{{ user }}/.ssh/authorized_keys
+
+/home/{{ user }}/.ssh/authorized_keys:
+  file.managed:
+    - mode: 600
 {% endfor %}

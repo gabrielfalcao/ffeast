@@ -19,7 +19,14 @@ publickey:
     - mode: 600
 
 
-/etc/nginx/conf.d/{{ pillar['app_name'] }}.conf:
+{% for subname in ["enabled", "available"] %}
+/etc/nginx/sites-{{ subname }}/default:
+  file:
+    - absent
+{% endfor %}
+
+
+/etc/nginx/sites-enabled/{{ pillar['app_name'] }}:
   file:
     - managed
     - template: jinja
@@ -32,7 +39,7 @@ publickey:
   file:
     - managed
     - template: jinja
-    - source: salt://supervisor/application.conf
+    - source: salt://ffeast/supervisor.conf
     - require:
       - pkg: supervisor
 
@@ -55,3 +62,10 @@ reload-supervisor:
 start-{{ pillar['app_name'] }}:
   cmd.run:
     - name: supervisorctl restart {{ pillar['app_name'] }} || echo "running"
+    - require:
+      - pkg: supervisor
+
+
+reload-nginx:
+  cmd.run:
+    - name: service nginx force-reload
