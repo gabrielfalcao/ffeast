@@ -1,0 +1,23 @@
+*.py[cod]
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+.DS_Store
+local-db.sqlite
+
+.coverage
+*flymake*
+*#*
+.*#*
+*.#*
+.*.#*
+docs/source_build/*
+_public/
+ffeast/static/vendor/bootstrap
+ffeast/static/vendor/angular
+ffeast/static/vendor/jquery
+ffeast/static/vendor/socket.io
+ffeast/static/.webassets-cache
+nohup.out

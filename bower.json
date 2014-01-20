@@ -1,0 +1,9 @@
+{
+  "name": "FFeast",
+  "version": "0.0.1",
+  "devDependencies": {
+    "angular": "~1.2.9",
+    "socket.io": "~0.9.15",
+    "bootstrap": "~3.0.3"
+  }
+}

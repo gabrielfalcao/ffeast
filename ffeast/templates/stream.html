@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block inner_body %}
+<nav class="uk-navbar ff-navbar">
+  <a class="uk-navbar-brand" href="#">FFEAST</a>
+  <span class="ff-nav-sep"></span>
+  <ul class="uk-navbar-nav uk-navbar-center">
+    <li class="uk-active"><a href="">
+      <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/18885/ff-ico-heart.png" />
+      Favorites</a></li>
+      <li><a href="">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/18885/ff-ico-menu.png" />
+      Lists</a></li>
+	<li class="uk-parent"><a href="">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/18885/ff-ico-globe.png" />
+      Explore</a></li>
+  </ul>
+  <div class="ff-nav-bottom"></div>
+</nav>
+<div class="uk-grid">
+  <div class="uk-width-1-1">
+    <div id="ff-stream" class="ff-stream">
+      <div class="ff-item">
+        <article class="uk-comment">
+	  <header class="uk-comment-header">
+            <img class="uk-comment-avatar" src="https://1.gravatar.com/avatar/3fa0df5c54f5ac0f8652d992d7d24039?s=50" width="50" height="50" />
+            <h4 class="uk-comment-title ff-author">Gabriel Falcão <a class="ff-handle" href="#">@gabrielfalcao</a> </h4>
+	    <div class="uk-comment-body">Constantly amazed by this video. https://vimeo.com/53394874</div>
+	  </header>
+	  <div class="uk-comment-body">
+            <iframe src="//player.vimeo.com/video/53394874?byline=0&amp;portrait=0&amp;color=d8c288" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	  </div>
+	</article>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

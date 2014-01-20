@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block inner_body %}
+<nav class="uk-navbar ff-navbar">
+  <a class="uk-navbar-brand" href="#">FFEAST</a>
+  <span class="ff-nav-sep"></span>
+  <ul class="uk-navbar-nav uk-navbar-flip">
+    <li class="uk-active">
+      <a href="/signup">Sign Up</a>
+    </li>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+  </ul>
+  <div class="ff-nav-bottom"></div>
+</nav>
+<div class="container">
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="uk-article">
+      <h1 class="uk-article-title">Favorites Feast</h1>
+      <p class="uk-article-lead">A platform for actually reading your favorite tweets</p>
+      <p>Here is the article body, all thanks to <a href="http://getuikit.com">UIKit</a></p>
+
+      <p>
+        <button class="uk-button uk-button-large uk-button-success">
+          Login
+        </button>
+        <button class="uk-button uk-button-large uk-button-primary">
+          Free Signup
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
