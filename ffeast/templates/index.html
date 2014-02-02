@@ -4,11 +4,8 @@
   <a class="uk-navbar-brand" href="#">FFEAST</a>
   <span class="ff-nav-sep"></span>
   <ul class="uk-navbar-nav uk-navbar-flip">
-    <li class="uk-active">
-      <a href="/signup">Sign Up</a>
-    </li>
     <li>
-      <a href="{{ full_url_for("social.login") }}">Login</a>
+      <a href="{{ full_url_for("social.login") }}"><i class="uk-icon-twitter uk-icon-large"></i></a>
     </li>
   </ul>
   <div class="ff-nav-bottom"></div>
@@ -22,12 +19,7 @@
       <p>Here is the article body, all thanks to <a href="http://getuikit.com">UIKit</a></p>
 
       <p>
-        <button class="uk-button uk-button-large uk-button-success">
-          Login
-        </button>
-        <button class="uk-button uk-button-large uk-button-primary">
-          Free Signup
-        </button>
+      <a class="uk-button uk-button-large uk-button-success" href="{{ full_url_for("social.login") }}"><i class="uk-icon-large uk-icon-twitter"></i> Sign In </a>
       </p>
     </div>
   </div>
