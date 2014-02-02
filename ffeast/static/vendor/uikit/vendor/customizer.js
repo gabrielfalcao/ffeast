@@ -5,7 +5,7 @@
         var $select   = $($options.select, $element),
             $sidebar  = $($options.sidebar, $element),
             $advanced = $($options.advanced, $element),
-            $style;
+            $style, memory = window.sessionStorage || {};
 
         this.$options = $options;
         this.$select  = $select;
@@ -15,6 +15,10 @@
 
                 if ($("option", $select).length != $options.styles.length) {
                     $select.html($.mustache($options.template.select, $options));
+
+                    if(memory["uikit-customizer-last-theme"]) {
+                        $select.val(memory["uikit-customizer-last-theme"]);
+                    }
                 }
 
                 if (value) {
@@ -44,6 +48,9 @@
         });
 
         $select.on("change", function(e) {
+
+            memory["uikit-customizer-last-theme"] = $select.val();
+
             setTimeout(function() {
                 $element.trigger("update");
             }, 1);
@@ -168,7 +175,8 @@
                                     input.spectrum({
                                         "showInput": true,
                                         "showAlpha": true,
-                                        "color": value,
+                                        "preferredFormat": "hex6",
+                                        "color": (value=='inherit' ? '':value),
                                         "change": function(color) {
                                             if (color.toRgb().a < 1) {
                                                 input.val(color.toRgbString()).trigger("change");
@@ -179,7 +187,7 @@
                                                 spectrum = $.fn.spectrum.get(input.data("spectrum.id"));
                                                 spectrum.container.find('.sp-cancel').after($('<a href="#" class="sp-reset">reset</a>').on("click", function(e) {
                                                     e.preventDefault();
-                                                    spectrum.set(input.data("default"));
+                                                    spectrum.set(input.data("default")=="inherit" ? "rgba(0,0,0,0)":input.data("default"));
                                                     spectrum.hide();
                                                     input.val("");
                                                 }));

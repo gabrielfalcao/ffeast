@@ -6403,7 +6403,7 @@ button.close {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#50000000', endColorstr='#00000000', GradientType=1);
 }
 
 .carousel-control.right {
@@ -6412,7 +6412,7 @@ button.close {
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#50000000', GradientType=1);
 }
 
 .carousel-control:hover,
@@ -8469,7 +8469,7 @@ table {
   min-width: 18px;
   font-size: 12px;
   line-height: 18px;
-  border-radius: 500px;
+  border-radius: 50%;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
@@ -8537,7 +8537,6 @@ table {
 .uk-breadcrumb > li:nth-child(n+2):before {
   display: inline-block;
   margin: 0 8px;
-  vertical-align: top;
   content: "/";
 }
 
@@ -8554,11 +8553,12 @@ table {
  ========================================================================== */
 
 /*
- * 1. Required for `a` elements. Can't be moved to `a.button` selector because needs to be overwritable for `uk-button-link` and `uk-button-expand`
- * 2. `min-height` is neccesary for `input` elments in Firefox and Opera because `line-height` is not working.
- * 3. Required for `button` and `input` elements
- * 4. `line-height` is used to create a height
+ * 1. Required for `a` elements
+ * 2. Required for `button` and `input` elements
+ * 3. `line-height` is used to create a height
+ * 4. `min-height` is neccesary for `input` elments in Firefox and Opera because `line-height` is not working.
  * 5. Reset button group whitespace hack
+ * 6. Style
  */
 
 .uk-button {
@@ -8568,15 +8568,11 @@ table {
   line-height: 30px;
   letter-spacing: normal;
   color: #444444;
-  background: #eeeeee;
-  border: none;
-}
-
-/* Required for `a` elements */
-
-a.uk-button {
+  text-align: center;
   text-decoration: none;
   vertical-align: middle;
+  background: #eeeeee;
+  border: none;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
@@ -8585,11 +8581,13 @@ a.uk-button {
  * Hover
  * 1. Apply hover style also to focus state
  * 2. Remove default focus style
+ * 3. Required for `a` elements
  */
 
 .uk-button:hover,
 .uk-button:focus {
   color: #444444;
+  text-decoration: none;
   background-color: #f5f5f5;
   outline: none;
 }
@@ -8702,9 +8700,8 @@ a.uk-button {
 .uk-button-link:active,
 .uk-button-link.uk-active,
 .uk-button-link:disabled {
-  display: inline;
   background: none;
-  border: none;
+  border-color: transparent;
 }
 
 /* Color */
@@ -8755,20 +8752,6 @@ a.uk-button {
   line-height: 40px;
 }
 
-/*
- * Behave like a block element and take the full width
- */
-
-.uk-button-expand {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.uk-button-expand + .uk-button-expand {
-  margin-top: 10px;
-}
-
 /* Sub-object `uk-button-group`
  ========================================================================== */
 
@@ -8812,7 +8795,9 @@ a.uk-button {
 /*
  * 1. Required for `button` elements and makes
  *    close button more robust against different box-sizing use
- * 2. Required for `button` elements
+ * 2. Style
+ * 3. Required for `button` elements
+ * 4. Needed for Sarari
  */
 
 .uk-close {
@@ -8842,20 +8827,16 @@ a.uk-button {
  * Hover
  * 1. Apply hover style also to focus state
  * 2. Remove default focus style
+ * 3. Required for `a` elements
  */
 
 .uk-close:hover,
 .uk-close:focus {
-  outline: none;
-  opacity: 0.5;
-}
-
-/* Required for `a` elements */
-
-a.uk-close:hover {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
+  outline: none;
+  opacity: 0.5;
 }
 
 /* Modifier
@@ -8864,7 +8845,7 @@ a.uk-close:hover {
 .uk-close-alt {
   padding: 2px;
   background: #eeeeee;
-  border-radius: 100%;
+  border-radius: 50%;
   opacity: 1;
 }
 
@@ -10928,8 +10909,8 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  ========================================================================== */
 
 .uk-navbar {
-  color: #faf9f4;
-  background: #34bca2;
+  color: #444444;
+  background: #eeeeee;
 }
 
 /*
@@ -10962,8 +10943,6 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-nav > li {
   position: relative;
-  /* 1 */
-
   float: left;
 }
 
@@ -10974,13 +10953,13 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-nav > li > a {
   display: block;
-  height: 56px;
+  height: 40px;
   padding: 0 15px;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: normal;
-  line-height: 56px;
-  color: #faf9f4;
+  line-height: 40px;
+  color: #444444;
   text-decoration: none;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
@@ -11002,34 +10981,33 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-nav > li:hover > a,
 .uk-navbar-nav > li > a:focus,
 .uk-navbar-nav > li.uk-open > a {
-  color: #faf9f4;
-  background-color: #34bca2;
+  color: #444444;
+  background-color: #f5f5f5;
   outline: none;
 }
 
 /* OnClick */
-
 .uk-navbar-nav > li > a:active {
-  color: #faf9f4;
-  background-color: #34bca2;
+  color: #444444;
+  background-color: #dddddd;
 }
 
 /* Active */
 
 .uk-navbar-nav > li.uk-active > a {
-  color: #faf9f4;
-  background-color: #34bca2;
+  color: #444444;
+  background-color: #f5f5f5;
 }
 
 /* Sub-objects: `uk-navbar-nav-subtitle`
  ========================================================================== */
 
 .uk-navbar-nav .uk-navbar-nav-subtitle {
-  line-height: 44px;
+  line-height: 28px;
 }
 
 .uk-navbar-nav-subtitle > div {
-  margin-top: -14px;
+  margin-top: -6px;
   font-size: 10px;
   line-height: 12px;
 }
@@ -11046,7 +11024,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-toggle {
   display: block;
   float: left;
-  height: 56px;
+  height: 40px;
   padding: 0 15px;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
@@ -11081,11 +11059,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 
 .uk-navbar-content > a:not([class]) {
-  color: #b7b7b7;
+  color: #0077dd;
 }
 
 .uk-navbar-content > a:not([class]):hover {
-  color: #faf9f4;
+  color: #005599;
 }
 
 /* Sub-objects: `uk-navbar-brand`
@@ -11093,7 +11071,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-brand {
   font-size: 18px;
-  color: #faf9f4;
+  color: #444444;
 }
 
 /*
@@ -11103,13 +11081,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-brand:hover,
 .uk-navbar-brand:focus {
-  /* 1 */
-
-  color: #faf9f4;
+  color: #444444;
   text-decoration: none;
-  outline: none;
   /* 2 */
 
+  outline: none;
 }
 
 /* Sub-object: `uk-navbar-toggle`
@@ -11117,7 +11093,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-toggle {
   font-size: 18px;
-  color: #faf9f4;
+  color: #444444;
 }
 
 /*
@@ -11127,13 +11103,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-navbar-toggle:hover,
 .uk-navbar-toggle:focus {
-  /* 1 */
-
-  color: #faf9f4;
+  color: #444444;
   text-decoration: none;
-  outline: none;
   /* 2 */
 
+  outline: none;
 }
 
 /*
@@ -11361,13 +11335,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   opacity: 1;
 }
 
-/* 1 */
-
 /*
  * Icon
  */
 
-.uk-overlay-area:before {
+.uk-overlay-area:empty:before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11381,6 +11353,65 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   color: #ffffff;
   text-align: center;
   content: "\f002";
+}
+
+/* Sub-object `uk-overlay-area-content`
+ ========================================================================== */
+
+/*
+ * Remove whitespace between child elements when using `inline-block`
+ * Needed for Firefox
+ */
+
+.uk-overlay-area:not(:empty) {
+  letter-spacing: -0.31em;
+}
+
+/*
+ * 1. Needed for vertical alignment
+ */
+
+.uk-overlay-area:not(:empty):before {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  content: '';
+}
+
+/*
+ * 1. Set vertical alignment
+ * 2. Reset whitespace hack
+ * 3. Set horizontal alignment
+ * 4. Set style
+ */
+
+.uk-overlay-area-content {
+  display: inline-block;
+  width: 100%;
+  padding: 0 15px;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-align: center;
+  vertical-align: middle;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+/*
+ * Remove margin from the last-child
+ */
+
+.uk-overlay-area-content > :last-child {
+  margin-bottom: 0;
+}
+
+/*
+ * Links in overlay area
+ */
+
+.uk-overlay-area-content a:not([class]),
+.uk-overlay-area-content a:not([class]):hover {
+  color: inherit;
 }
 
 /* Sub-object `uk-overlay-caption`
@@ -11414,8 +11445,6 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-overlay-toggle:hover .uk-overlay-caption {
   opacity: 1;
 }
-
-/* 1 */
 
 /* ========================================================================
    Component: Pagination
@@ -11458,9 +11487,9 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 .uk-pagination > li {
   display: inline-block;
-  letter-spacing: normal;
   /* 1 */
 
+  letter-spacing: normal;
 }
 
 .uk-pagination > li:nth-child(n+2) {
@@ -11628,6 +11657,11 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 
 /* Sub-object: `uk-progress-bar`
  ========================================================================== */
+
+/*
+ * 1. Transition
+ * 2. Needed for text
+ */
 
 .uk-progress-bar {
   float: left;
@@ -11805,6 +11839,7 @@ input.uk-search-field {
 
 /*
  * 1. Required for `button` elements
+ * 2. Needed for Sarari
  */
 
 .uk-search-close {
@@ -11870,12 +11905,12 @@ input.uk-search-field {
  */
 
 .uk-subnav > li {
-  position: relative;
   /* 1 */
 
-  letter-spacing: normal;
+  position: relative;
   /* 2 */
 
+  letter-spacing: normal;
 }
 
 .uk-subnav > li,
@@ -12038,7 +12073,7 @@ input.uk-search-field {
 /* Modifier: `uk-table-striped`
  ========================================================================== */
 
-.uk-table-striped tbody tr:nth-of-type(odd) td {
+.uk-table-striped tbody tr:nth-of-type(odd) {
   background: #f5f5f5;
 }
 
@@ -12052,7 +12087,7 @@ input.uk-search-field {
 /* Modifier: `uk-table-hover`
  ========================================================================== */
 
-.uk-table-hover tbody tr:hover td {
+.uk-table-hover tbody tr:hover {
   background: #eeeeee;
 }
 
@@ -12126,6 +12161,14 @@ input.uk-search-field {
  ========================================================================== */
 
 /*
+ * Prevent text from wrapping onto multiple lines
+ */
+
+.uk-text-nowrap {
+  white-space: nowrap;
+}
+
+/*
  * Prevent text from wrapping onto multiple lines, and truncate with an ellipsis
  */
 
@@ -12155,6 +12198,7 @@ input.uk-search-field {
  * 1. Corrects max-width behavior (2.) if padding and border are used
  * 2. Responsive behavior
  * 3. Required for `figure` element
+ * 4. Style
  */
 
 .uk-thumbnail {

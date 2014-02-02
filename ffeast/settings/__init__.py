@@ -17,7 +17,7 @@ GOOGLE_ANALYTICS_CODE = 'UA-46592615-1'
 
 ##########
 
-LOCAL_PORT = 8000
+LOCAL_PORT = 5000
 PORT = env.get_int('PORT', LOCAL_PORT)
 
 #STATIC_BASE_URL = '//static.ffeast.s3-website-us-east-1.amazonaws.com/s/'
@@ -26,6 +26,9 @@ STATIC_BASE_URL = '/static/'
 # Identifying environment
 LOCAL = env.get('FFEAST_LOCAL_MODE') or (PORT is LOCAL_PORT)
 SQLALCHEMY_DATABASE_URI = env.get('SQLALCHEMY_DATABASE_URI')
+
+TWITTER_CONSUMER_KEY = 'm8cDdkH7hK8sWoBY55yOKg'
+TWITTER_CONSUMER_SECRET = 'IBwBcJqr4yDmXN8mqhspGJUWlmMr3IxDhTABZikBSA'
 
 # setting up environment variables after all
 if LOCAL:
@@ -40,8 +43,8 @@ TESTING = env.get_bool('TESTING', False)
 UNIT_TESTING = env.get_bool('UNIT_TESTING', False)
 
 # HTTP
-HOST = env.get("HOST")
-DOMAIN = env.get("DOMAIN")
+HOST = env.get("HOST") or 'localhost:{0}'.format(PORT)
+DOMAIN = env.get("DOMAIN") or 'localhost:{0}'.format(PORT)
 SCHEME = PORT == 443 and 'https://' or "http://"
 
 # Database-related

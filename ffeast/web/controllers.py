@@ -8,7 +8,7 @@ import json
 from ffeast import settings
 from flask import Blueprint, render_template, session, url_for
 
-module = Blueprint('api', __name__)
+module = Blueprint('web', __name__)
 
 
 @module.context_processor

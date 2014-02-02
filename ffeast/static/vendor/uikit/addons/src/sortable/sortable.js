@@ -296,6 +296,8 @@
             this.dragEl = $(document.createElement(this.options.listNodeName)).addClass(this.options.listClass + ' ' + this.options.dragClass);
             this.dragEl.css('width', dragItem.width());
 
+            this.tmpDragOnSiblings = [dragItem[0].previousSibling, dragItem[0].nextSibling];
+
             // fix for zepto.js
             //dragItem.after(this.placeEl).detach().appendTo(this.dragEl);
             dragItem.after(this.placeEl);
@@ -332,10 +334,13 @@
 
             this.dragEl.remove();
 
-            this.el.trigger('sortable-change');
+            if (this.tmpDragOnSiblings[0]!=el[0].previousSibling || this.tmpDragOnSiblings[0]!=el[0].previousSibling) {
 
-            if (this.hasNewRoot) {
-                this.dragRootEl.trigger('sortable-change');
+                this.el.trigger('sortable-change',[el, this.hasNewRoot ? "added":"moved"]);
+
+                if (this.hasNewRoot) {
+                    this.dragRootEl.trigger('sortable-change', [el, "removed"]);
+                }
             }
 
             this.reset();
@@ -471,8 +476,8 @@
 
             // find parent list of item under cursor
             var pointElRoot = this.el,
-                tmpRoot     = this.pointEl.closest('.uk-sortable'),
-                isNewRoot   = pointElRoot[0] !== this.pointEl.closest('.uk-sortable')[0],
+                tmpRoot     = this.pointEl.closest('.'+this.options.listBaseClass),
+                isNewRoot   = pointElRoot[0] !== this.pointEl.closest('.'+this.options.listBaseClass)[0],
                 $newRoot    = tmpRoot;
 
             /**
@@ -543,18 +548,20 @@
     };
 
     $.fn.uksortable.defaults = {
+        prefix          : 'uk',
         listNodeName    : 'ul',
         itemNodeName    : 'li',
-        listClass       : 'uk-sortable-list',
-        listitemClass   : 'uk-sortable-list-item',
-        itemClass       : 'uk-sortable-item',
-        dragClass       : 'uk-sortable-list-dragged',
-        movingClass     : 'uk-sortable-moving',
-        handleClass     : 'uk-sortable-handle',
-        collapsedClass  : 'uk-collapsed',
-        placeClass      : 'uk-sortable-placeholder',
-        noDragClass     : 'uk-sortable-nodrag',
-        emptyClass      : 'uk-sortable-empty',
+        listBaseClass   : '{prefix}-sortable',
+        listClass       : '{prefix}-sortable-list',
+        listitemClass   : '{prefix}-sortable-list-item',
+        itemClass       : '{prefix}-sortable-item',
+        dragClass       : '{prefix}-sortable-list-dragged',
+        movingClass     : '{prefix}-sortable-moving',
+        handleClass     : '{prefix}-sortable-handle',
+        collapsedClass  : '{prefix}-collapsed',
+        placeClass      : '{prefix}-sortable-placeholder',
+        noDragClass     : '{prefix}-sortable-nodrag',
+        emptyClass      : '{prefix}-sortable-empty',
         group           : 0,
         maxDepth        : 10,
         threshold       : 20
@@ -567,10 +574,16 @@
           var ele     = $(this),
               options = $.extend({}, $.fn.uksortable.defaults, UI.Utils.options(ele.attr("data-uk-sortable")));
 
+          Object.keys(options).forEach(function(key){
+
+              if(String(options[key]).indexOf('{prefix}')!=-1) {
+                  options[key] = options[key].replace('{prefix}', options.prefix);
+              }
+          });
+
           if(!ele.data("uksortable")) {
               ele.uksortable(options);
           }
-
         });
     });
 

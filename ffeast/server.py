@@ -22,5 +22,9 @@ application.enable_session()
 application.enable_assets()
 application.setup_logging(sys.stderr, logging.DEBUG)
 
-from .web.controllers import module
-application.register_blueprint(module)
+from .social.controllers import module as social
+application.register_blueprint(social)
+
+
+from .web.controllers import module as web
+application.register_blueprint(web)

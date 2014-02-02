@@ -5,6 +5,7 @@
 //
 // Sub-objects:     `uk-panel-title`
 //                  `uk-panel-badge`
+//                  `uk-panel-teaser`
 //
 // Modifiers:       `uk-panel-box`
 //                  `uk-panel-box-primary`
@@ -30,7 +31,7 @@
 @panel-title-line-height:                       24px;
 @panel-title-font-weight:                       normal;
 @panel-title-color:                             #444;
-@panel-title-text-transform:                            none;
+@panel-title-text-transform:                    none;
 
 @panel-box-padding:                             15px;
 @panel-box-background:                          #f5f5f5;
@@ -38,6 +39,8 @@
 @panel-box-title-color:                         #444;
 @panel-box-badge-top:                           10px;
 @panel-box-badge-right:                         @panel-box-badge-top;
+@panel-box-teaser-margin:                       -@panel-box-padding;
+@panel-box-teaser-margin-bottom:                @panel-title-margin-bottom;
 
 @panel-box-primary-background:                  #ebf7fd;
 @panel-box-primary-color:                       #2d7091;
@@ -49,6 +52,7 @@
 
 @panel-header-title-padding:                    10px;
 @panel-header-title-border:                     #ddd;
+@panel-header-title-border-width:               1px;
 @panel-header-title-color:                      #444;
 
 @panel-space-padding:                           30px;
@@ -56,6 +60,7 @@
 @panel-divider-gutter:                          25px;
 @panel-divider-large-gutter:                    35px;
 @panel-divider-border:                          #ddd;
+@panel-divider-border-width:                    1px;
 
 
 /* ========================================================================
@@ -63,10 +68,16 @@
  ========================================================================== */
 
 /*
- * Create position context for badges
+ * 1. Needed for `a` elements
+ * 2. Create position context for badges
  */
 
-.uk-panel { position: relative; }
+.uk-panel {
+    /* 1 */
+    display: block; 
+    /* 2 */
+    position: relative; 
+}
 
 /*
  * Micro clearfix to make panels more robust
@@ -91,6 +102,7 @@
  ========================================================================== */
 
 .uk-panel-title {
+    margin-top: 0;
     margin-bottom: @panel-title-margin-bottom;
     font-size: @panel-title-font-size;
     line-height: @panel-title-line-height;
@@ -112,12 +124,6 @@
     .hook-panel-badge;
 }
 
-/*
- * Remove margin from adjacent element
- */
-
-.uk-panel-badge + * { margin-top: 0; }
-
 
 /* Modifier: `uk-panel-box`
  ========================================================================== */
@@ -135,6 +141,8 @@
     top: @panel-box-badge-top;
     right: @panel-box-badge-right;
 }
+
+.uk-panel-box .uk-panel-teaser { margin: @panel-box-teaser-margin @panel-box-teaser-margin @panel-box-teaser-margin-bottom @panel-box-teaser-margin; }
 
 /*
  * Nav in panel
@@ -172,7 +180,7 @@
 
 .uk-panel-header .uk-panel-title {
     padding-bottom: @panel-header-title-padding;
-    border-bottom: 1px solid @panel-header-title-border;
+    border-bottom: @panel-header-title-border-width solid @panel-header-title-border;
     color: @panel-header-title-color;
     .hook-panel-header;
 }
@@ -201,7 +209,7 @@
     top: -(@panel-divider-gutter);
     left: 0;
     right: 0;
-    border-top: 1px solid @panel-divider-border;
+    border-top: @panel-divider-border-width solid @panel-divider-border;
 }
 
 /* Only large screens */

@@ -17,6 +17,7 @@
 //                  `uk-display-*`
 //                  `uk-visible-*`
 //                  `uk-hidden-*`
+//                  `uk-invisible`
 //
 // ========================================================================
 
@@ -35,6 +36,8 @@
 
 @utility-margin-vertical:                       15px;
 @utility-margin-horizontal:                     15px;
+@utility-margin-small-vertical:                 5px;
+@utility-margin-small-horizontal:               5px;
 
 @utility-heading-large-font-size:               52px;
 @utility-heading-large-line-height:             64px;
@@ -47,6 +50,7 @@
 @utility-scrollable-box-height:                 170px;
 @utility-scrollable-box-padding:                10px;
 @utility-scrollable-box-border:                 #ddd;
+@utility-scrollable-box-border-width:           1px;
 
 
 /* ========================================================================
@@ -134,7 +138,8 @@
 .uk-float-left { float: left; }
 .uk-float-right { float: right; }
 
-[class*='uk-float-'] { max-width: 100%; } /* 1 */
+/* 1 */
+[class*='uk-float-'] { max-width: 100%; }
 
 
 /* Alignment of images and objects
@@ -210,8 +215,9 @@
 .uk-vertical-align-middle,
 .uk-vertical-align-bottom {
     display: inline-block;
-    letter-spacing: normal; /* 1 */
     max-width: 100%;
+    /* 1 */
+    letter-spacing: normal;
 }
 
 .uk-vertical-align-middle { vertical-align: middle; }
@@ -283,6 +289,15 @@
 .uk-margin-right { margin-right: @utility-margin-horizontal !important; }
 
 /*
+ * Smaller margins
+ */
+
+.uk-margin-small-top { margin-top: @utility-margin-small-vertical !important; }
+.uk-margin-small-bottom { margin-bottom: @utility-margin-small-vertical !important; }
+.uk-margin-small-left { margin-left: @utility-margin-small-horizontal !important; }
+.uk-margin-small-right { margin-right: @utility-margin-small-horizontal !important; }
+
+/*
  * Remove margins
  */
 
@@ -342,7 +357,7 @@
     box-sizing: border-box;
     max-height: @utility-scrollable-box-height;
     padding: @utility-scrollable-box-padding;
-    border: 1px solid @utility-scrollable-box-border;
+    border: @utility-scrollable-box-border-width solid @utility-scrollable-box-border;
     overflow: auto;
     .hook-scrollable-box;
 }
@@ -404,13 +419,18 @@
     visibility: hidden !important;
 }
 
+/* It's hidden, but still affects layout */
+.uk-invisible { visibility: hidden !important; }
+
 /* Show on hover */
-.uk-visible-hover:hover .uk-hidden {
+.uk-visible-hover:hover .uk-hidden,
+.uk-visible-hover:hover .uk-invisible {
     display: block !important;
     visibility: visible !important;
 }
 
-.uk-visible-hover-inline:hover .uk-hidden {
+.uk-visible-hover-inline:hover .uk-hidden,
+.uk-visible-hover-inline:hover .uk-invisible {
     display: inline-block !important;
     visibility: visible !important;
 }

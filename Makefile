@@ -49,5 +49,5 @@ prod-simulation:
        PYTHONPATH=`pwd` PORT="4000" DOMAIN="0.0.0.0" REDIS_URI="redis://localhost:6379" gunicorn --worker-class ffeast.upstream.WebsocketsSocketIOWorker ffeast.server:application
 
 static:
-	bower install --save-dev
+	bower install --save-dev --force
 	python manage.py assets build

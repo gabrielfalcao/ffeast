@@ -18,6 +18,9 @@
 // Variables
 // ========================================================================
 
+@pagination-margin-left:                        5px;
+@pagination-padding-vertical:                   3px;
+@pagination-padding-horizontal:                 5px;
 @pagination-line-height:                        20px;
 @pagination-background:                         #eee;
 @pagination-color:                              #444;
@@ -76,10 +79,11 @@
 
 .uk-pagination > li {
     display: inline-block;
-    letter-spacing: normal; /* 1 */
+    /* 1 */
+    letter-spacing: normal;
 }
 
-.uk-pagination > li:nth-child(n+2) { margin-left: 5px; }
+.uk-pagination > li:nth-child(n+2) { margin-left: @pagination-margin-left; }
 
 /*
  * 1. Makes pagination more robust against different box-sizing use
@@ -88,14 +92,16 @@
 
 .uk-pagination > li > a,
 .uk-pagination > li > span {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box; /* 1 */
     display: inline-block;
-    min-width: @pagination-line-height - 4;
-    padding: 3px 5px;
+    min-width: @pagination-line-height + (2 * @pagination-padding-vertical) - (2 * @pagination-padding-horizontal);
+    padding: @pagination-padding-vertical @pagination-padding-horizontal;
     line-height: @pagination-line-height;
     text-decoration: none;
-    text-align: center; /* 2 */
+    /* 1 */
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /* 2 */
+    text-align: center;
     .hook-pagination-item;
 }
 
@@ -116,10 +122,11 @@
  */
 
 .uk-pagination > li > a:hover,
-.uk-pagination > li > a:focus { /* 1 */
+.uk-pagination > li > a:focus { // 1
     background-color: @pagination-hover-background;
     color: @pagination-hover-color;
-    outline: none; /* 2 */
+    /* 2 */
+    outline: none;
     .hook-pagination-link-hover;
 }
 

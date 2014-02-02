@@ -1,4 +1,3 @@
-
 module.exports = function(grunt) {
 
     "use strict";
@@ -10,7 +9,7 @@ module.exports = function(grunt) {
         pkg: pkginfo,
 
         meta: {
-          banner: "/*! <%= pkg.title %> <%= pkg.version %> | <%= pkg.homepage %> | (c) 2013 YOOtheme | MIT License */"
+          banner: "/*! <%= pkg.title %> <%= pkg.version %> | <%= pkg.homepage %> | (c) 2014 YOOtheme | MIT License */"
         },
 
         jshint: {
@@ -141,6 +140,7 @@ module.exports = function(grunt) {
                     separator: "\n\n"
                 },
                 src: ["src/js/core.js",
+                      "src/js/utility.js",
                       "src/js/touch.js",
                       "src/js/alert.js",
                       "src/js/button.js",
@@ -268,6 +268,61 @@ module.exports = function(grunt) {
        grunt.log.writeln(themes.length+' themes found: ' + themes.map(function(theme){ return theme.name;}).join(", "));
 
        fs.writeFileSync("themes/themes.json", JSON.stringify(themes, " ", 4));
+    });
+
+    grunt.registerTask('sublime', 'Building Sublime Text Package', function() {
+      var filepath = 'dist/css/uikit.css';
+      if (!fs.existsSync(filepath)) {
+        grunt.log.error("Not found: " + filepath);
+        return;
+      }
+      var cssContent   = grunt.file.read(filepath),
+          classesList = cssContent.match(/\.(uk-[a-z\d\-]+)/g),
+          classesSet  = {},
+          pystring    = '# copy & paste into sublime plugin code:\n';
+
+      // use object as set (no duplicates)
+      classesList.forEach(function(c) {
+        c = c.substr(1); // remove leading dot
+        classesSet[c] = true;
+      });
+
+      // convert set back to list
+      /*
+      classesList = [];
+      for( var c in classesSet ) {
+          if (classesSet.hasOwnProperty(c)){
+             classesList.push(c);
+          }
+      }
+      */
+      classesList = Object.keys(classesSet);
+
+      pystring += 'uikit_classes = ["' + classesList.join('", "') + '"]\n';
+
+      filepath = 'dist/js/uikit.js';
+      if (!fs.existsSync(filepath)) {
+        grunt.log.error("Not found: " + filepath);
+        return;
+      }
+      var jsContent = grunt.file.read(filepath),
+        dataList    = jsContent.match(/data-uk-[a-z\d\-]+/g),
+        dataSet     = {};
+
+      dataList.forEach(function(s) { dataSet[s] = true; });
+      /*
+      dataList = [];
+      for (var p in dataSet) {
+        if (dataSet.hasOwnProperty(p)) {
+          dataList.push(p);
+        }
+      }
+      */
+      dataList = Object.keys(dataSet);
+      pystring += 'uikit_data = ["' + dataList.join('", "') + '"]\n';
+
+      grunt.file.write('dist/uikit_completions.py', pystring);
+      grunt.log.writeln('Written: dist/uikit_completions.py');
     });
 
     // Load grunt tasks from NPM packages

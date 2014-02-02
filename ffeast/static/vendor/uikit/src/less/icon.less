@@ -22,6 +22,14 @@
 
 @icon-font-path:                                "../fonts";
 
+@icon-small-font-size:                          150%;
+@icon-medium-font-size:                         200%;
+@icon-large-font-size:                          250%;
+
+@icon-small-vertical-align:                     -10%;
+@icon-medium-vertical-align:                    -16%;
+@icon-large-vertical-align:                     -22%;
+
 @icon-button-width:                             35px;
 @icon-button-height:                            @icon-button-width;
 @icon-button-border-radius:                     100%;
@@ -58,22 +66,26 @@
  */
 
 [class*='uk-icon-'] {
-    display: inline-block; /* 1 */
     font-family: FontAwesome;
-    font-weight: normal; /* 2 */
-    font-style: normal; /* 2 */
-    line-height: 1; /* 4 */
-    -webkit-font-smoothing: antialiased; /* 5 */
-    -moz-osx-font-smoothing: grayscale; /* 5 */
+    /* 1 */
+    display: inline-block;
+    /* 2 */
+    font-weight: normal;
+    font-style: normal;
+    /* 4 */
+    line-height: 1;
+    /* 5 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
 /* Size modifiers
  ========================================================================== */
 
-.uk-icon-small:before { font-size: 150%; vertical-align: -10%; }
-.uk-icon-medium:before { font-size: 200%; vertical-align: -16%; }
-.uk-icon-large:before { font-size: 250%; vertical-align: -22%; }
+.uk-icon-small:before { font-size: @icon-small-font-size; vertical-align: @icon-small-vertical-align; }
+.uk-icon-medium:before { font-size: @icon-medium-font-size; vertical-align: @icon-medium-vertical-align; }
+.uk-icon-large:before { font-size: @icon-large-font-size; vertical-align: @icon-large-vertical-align; }
 
 
 /* Modifier: `uk-icon-spin`
@@ -111,11 +123,12 @@
  */
 
 .uk-icon-button:hover,
-.uk-icon-button:focus { /* 1 */
+.uk-icon-button:focus { // 1
     background-color: @icon-button-hover-background;
     color: @icon-button-hover-color;
     text-decoration: none;
-    outline: none; /* 2 */
+    /* 2 */
+    outline: none;
     .hook-icon-button-hover;
 }
 

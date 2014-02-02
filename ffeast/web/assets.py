@@ -12,6 +12,6 @@ web_scripts = Bundle('js/*.js')
 web_css = Bundle('less/*.less', filters=('recess',))
 
 BUNDLES = [
-    ('js-web', Bundle(jquery, angular, uikit_js, web_scripts, filters=('jsmin',), output='ffeast.js')),
+    ('js-web', Bundle(jquery, angular, web_scripts, filters=('uglifyjs',), output='ffeast.js')),
     ('css-web', Bundle(uikit_css, web_css, output='ffeast.css')),
 ]

@@ -1,8 +1,62 @@
 # Changelog
 
+### 2.3.1 (January 31, 2014)
+
+  - Fixed button text decoration
+
+### 2.3.0 (January 31, 2014)
+
+  - IMPORTANT: Removed uk-button-expand, use uk-width-1-1 instead
+  - IMPORTANG: Renamed @form-blank-outline to @form-blank-border
+  - Updated to Normalize 3.0.0
+  - Added more variables to all components
+  - Added panel teaser to panel component
+  - Added invisible to utility component
+  - Added padding variable for thumbnail caption
+  - Updated links in base component
+  - Panel component works now with inline elements
+  - Background color now set on tr elements in table component
+  - Removed vertical align from breadcrumbs
+  - Fixed button link in button component
+  - Fixed cursor in sortable add-on
+  - Fixed links in overlay-area-content
+  - Fixed tooltip boundary check
+
+**Documentation and repository**
+
+  - Better comments for compiled CSS
+  - Updated panel docs and tests
+  - Fixed default theme in tests
+
+### 2.2.0 (January 23, 2014)
+
+  - Added alert, confirm shorcut methods to modal component
+  - Added form-file add-on
+  - Added primary comment to comment component
+  - Added overlay-area-content to overlay component
+  - Added margin-small classes to utility component
+  - Added text-nowrap to text component
+  - Added data-uk-margin to utility component
+  - Switcher now activates first toggler when no uk-active class is set
+  - Extended Notify message api wit content+status methods
+  - Fixed Offcanvas in RTL mode
+  - Fixed Tooltips in Offcanvas
+  - Fixed sticky add-on jQuery error where $ is not available
+  - Removed hgroup in normalize because it was deprecated in HTML5
+  - Fixed data-uk-grid-match
+
+**Documentation and repository**
+
+  - Added form-file docs and tests
+  - Updated LESS to 1.6.1
+  - Updated overlay docs and tests
+  - Updated utility docs and tests
+  - Updated comment docs and tests
+  - Optimized docs and tests with data-uk-margin
+
 ### 2.1.0 (January 07, 2014)
   - Added notify add-on
-  - Added border-circle to utility component 
+  - Added border-circle to utility component
   - Added more variables to sortable add-on
   - Added modifier to flip form icons
   - Updated form icons to work with form size modifiers
@@ -121,4 +175,4 @@
 
 ### 1.0.0 (July 19, 2013)
 
-  * Initial Release
+  - Initial Release

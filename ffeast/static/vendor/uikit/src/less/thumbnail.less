@@ -19,11 +19,18 @@
 
 @thumbnail-padding:                             4px;
 @thumbnail-border:                              #ddd;
+@thumbnail-border-width:                        1px;
 @thumbnail-background:                          #fff;
 @thumbnail-hover-border:                        #aaa;
 @thumbnail-hover-background:                    #fff;
 
+@thumbnail-caption-padding:                     @thumbnail-padding;      
 @thumbnail-caption-color:                       #444;
+
+@thumbnail-mini-width:                          150px;
+@thumbnail-small-width:                         200px;
+@thumbnail-medium-width:                        300px;
+@thumbnail-large-width:                         400px;
 
 
 /* ========================================================================
@@ -34,17 +41,21 @@
  * 1. Corrects max-width behavior (2.) if padding and border are used
  * 2. Responsive behavior
  * 3. Required for `figure` element
+ * 4. Style
  */
 
 .uk-thumbnail {
-    /* Required for `a`, `div` or `figure` elements */
     display: inline-block;
-    -moz-box-sizing: border-box; /* 1 */
+    /* 1 */
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
-    max-width: 100%; /* 2 */
-    margin: 0; /* 3 */
+    /* 2 */
+    max-width: 100%;
+    /* 3 */
+    margin: 0;
+    /* 4 */
     padding: @thumbnail-padding;
-    border: 1px solid @thumbnail-border;
+    border: @thumbnail-border-width solid @thumbnail-border;
     background: @thumbnail-background;
     .hook-thumbnail;
 }
@@ -57,11 +68,13 @@
  */
 
 a.uk-thumbnail:hover,
-a.uk-thumbnail:focus { /* 1 */
+a.uk-thumbnail:focus { // 1
     border-color: @thumbnail-hover-border;
     background-color: @thumbnail-hover-background;
-    text-decoration: none; /* 2 */
-    outline: none; /* 3 */
+    /* 2 */
+    text-decoration: none;
+    /* 3 */
+    outline: none;
     .hook-thumbnail-hover;
 }
 
@@ -70,7 +83,7 @@ a.uk-thumbnail:focus { /* 1 */
  ========================================================================== */
 
 .uk-thumbnail-caption {
-    padding-top: @thumbnail-padding;
+    padding-top: @thumbnail-caption-padding;
     text-align: center;
     color: @thumbnail-caption-color;
     .hook-thumbnail-caption;
@@ -80,10 +93,10 @@ a.uk-thumbnail:focus { /* 1 */
 /* Sizes
  ========================================================================== */
 
-.uk-thumbnail-mini { width: 150px; }
-.uk-thumbnail-small { width: 200px; }
-.uk-thumbnail-medium { width: 300px; }
-.uk-thumbnail-large { width: 400px; }
+.uk-thumbnail-mini { width: @thumbnail-mini-width; }
+.uk-thumbnail-small { width: @thumbnail-small-width; }
+.uk-thumbnail-medium { width: @thumbnail-medium-width; }
+.uk-thumbnail-large { width: @thumbnail-large-width; }
 
 .uk-thumbnail-expand,
 .uk-thumbnail-expand > img { width: 100%; }

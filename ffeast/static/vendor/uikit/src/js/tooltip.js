@@ -1,4 +1,4 @@
-(function($, UI) {
+(function($, UI, $win) {
 
     "use strict";
 
@@ -112,6 +112,9 @@
                 if (tmppos.length == 2) tcss.left = (tmppos[1] == 'left') ? (pos.left) : ((pos.left + pos.width) - width);
             }
 
+
+            tcss.left -= $("body").position().left;
+
             tooltipdelay = setTimeout(function(){
 
                 $tooltip.css(tcss).attr("class", "uk-tooltip uk-tooltip-" + position);
@@ -148,12 +151,12 @@
 
             var axis = "";
 
-            if(left < 0 || left+width > window.innerWidth) {
-                axis += "x";
+            if(left < 0 || ((left-$win.scrollLeft())+width) > window.innerWidth) {
+               axis += "x";
             }
 
-            if(top < 0 || top+height > window.innerHeight) {
-                axis += "y";
+            if(top < 0 || ((top-$win.scrollTop())+height) > window.innerHeight) {
+               axis += "y";
             }
 
             return axis;
@@ -185,4 +188,4 @@
         }
     });
 
-})(jQuery, jQuery.UIkit);
+})(jQuery, jQuery.UIkit, jQuery(window));

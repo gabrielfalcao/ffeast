@@ -113,7 +113,7 @@
 
                             <form class="uk-form">
 
-                                <fieldset>
+                                <fieldset data-uk-margin>
                                     <legend>Form</legend>
                                     <input type="text" placeholder="Text input">
                                     <input type="password" placeholder="Password input">
@@ -127,13 +127,13 @@
 
                             </form>
 
-                            <p><span class="uk-badge">NOTE</span> In this example we used a button from the <a href="button.html">Button component</a>.</p>
+                            <p><span class="uk-badge">NOTE</span> In this example we used a button from the <a href="button.html">Button component</a>. To add a top margin to form elements, when they stack on smaller viewports, just add the <code>data-uk-margin</code> attribute from the <a href="utility.html">Utility component</a> to the parent element.</p>
 
                             <h3 class="tm-article-subtitle">Markup</h3>
 
 <pre><code>&lt;form class="uk-form"&GT;
 
-    &lt;fieldset&GT;
+    &lt;fieldset data-uk-margin&GT;
         &lt;legend&GT;...&lt;/legend&GT;
         &lt;input type="text" placeholder=""&GT;
         &lt;input type="password" placeholder=""&GT;
@@ -630,7 +630,7 @@
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
-                            <form class="uk-form">
+                            <form class="uk-form" data-uk-margin>
 
                                 <div class="uk-form-icon">
                                     <i class="uk-icon-calendar"></i>
@@ -757,13 +757,14 @@
                     </li>
                     <li class="uk-parent"><a href="#">Add-ons</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="addons_markdownarea.html">Markdown Area</a></li>
+                            <li><a href="addons_markdownarea.html">Markdown area</a></li>
                             <li><a href="addons_sortable.html">Sortable</a></li>
                             <li><a href="addons_datepicker.html">Datepicker</a></li>
                             <li><a href="addons_timepicker.html">Timepicker</a></li>
                             <li><a href="addons_sticky.html">Sticky</a></li>
                             <li><a href="addons_notify.html">Notify</a></li>
-                            <li><a href="addons_form-password.html">Form Password</a></li>
+                            <li><a href="addons_form-password.html">Form password</a></li>
+                            <li><a href="addons_form-file.html">Form file</a></li>
                         </ul>
                     </li>
                 </ul>

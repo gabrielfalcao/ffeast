@@ -40,3 +40,5 @@ def setup_localhost(settings):
     os.environ.setdefault('REDIS_URI', 'redis://localhost:6379')
     os.environ.setdefault('SESSION_SECRET_KEY', uuid.uuid4().hex)
     settings.STATIC_BASE_URL = '/static/'
+    settings.TWITTER_CONSUMER_KEY = 'Kwzqf71Z4GsEXweYtV0EA'
+    settings.TWITTER_CONSUMER_SECRET = '5KMY18SIxsPbiOJVIkqjzqHdpmb8yRG3b7kFZZkcmbI'

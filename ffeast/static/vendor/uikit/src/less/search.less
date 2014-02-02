@@ -25,6 +25,7 @@
 @search-height:                                 30px;
 @search-padding:                                30px;
 @search-border:                                 rgba(0,0,0,0);
+@search-border-width:                           1px;
 @search-background:                             rgba(0,0,0,0);
 @search-color:                                  #444;
 @search-placeholder-color:                      #999;
@@ -50,8 +51,10 @@
 
 .uk-search {
     display: inline-block;
-    position: relative; /* 1 */
-    margin: 0; /* 2 */
+    /* 1 */
+    position: relative;
+    /* 2 */
+    margin: 0;
     .hook-search;
 }
 
@@ -81,16 +84,17 @@
  * 1. Needed to reset iOS `input[type="search"]` appearance
  */
 
-.uk-search-field { /* 1 */
+.uk-search-field {
     width: @search-width;
     height: @search-height;
     padding: 0 @search-padding;
-    border: 1px solid @search-border;
-    border-radius: 0; /* 1 */
+    border: @search-border-width solid @search-border;
     background: @search-background;
     color: @search-color;
     -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
+    /* 1 */
+    border-radius: 0;
     .hook-search-field;
 }
 
@@ -125,6 +129,7 @@ input.uk-search-field { -webkit-appearance: none; }
 
 /*
  * 1. Required for `button` elements
+ * 2. Needed for Sarari
  */
 
 .uk-search-close {
@@ -141,7 +146,8 @@ input.uk-search-field { -webkit-appearance: none; }
     padding: 0;
     border: 0;
     -webkit-appearance: none;
-    background: transparent; /* Needed for Sarari */
+    /* 2. */
+    background: transparent;
     .hook-search-close;
 }
 

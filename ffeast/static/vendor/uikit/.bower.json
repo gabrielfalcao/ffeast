@@ -1,6 +1,6 @@
 {
   "name": "uikit",
-  "version": "2.1.0",
+  "version": "2.3.1",
   "main": [
     "dist/js/uikit.min.js",
     "dist/css/uikit.min.css",
@@ -19,13 +19,14 @@
     "tests"
   ],
   "homepage": "https://github.com/uikit/uikit",
-  "_release": "2.1.0",
+  "_release": "2.3.1",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.0",
-    "commit": "7eddbb1dc52840eabb1b2e4e2df8a540b8403470"
+    "tag": "v2.3.1",
+    "commit": "6f09414fbeea198cf6c95c2368b47f67b66b6cef"
   },
   "_source": "git://github.com/uikit/uikit.git",
-  "_target": "~2.1.0",
-  "_originalSource": "uikit"
+  "_target": "~2.3.1",
+  "_originalSource": "uikit",
+  "_direct": true
 }

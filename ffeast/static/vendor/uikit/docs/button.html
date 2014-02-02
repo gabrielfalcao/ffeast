@@ -123,6 +123,8 @@
 &lt;button class="uk-button" type="button"&gt;...&lt;/button&gt;
 &lt;button class="uk-button" type="button" disabled&gt;...&lt;/button&gt;</code></pre>
 
+                            <p><span class="uk-badge">NOTE</span> If you are displaying a number of buttons in a row, you can add a top margin to them, when they stack on smaller viewports. Just add the <code>data-uk-margin</code> attribute from the <a href="utility.html">Utility component</a> to their parent element.</p>
+
                             <hr class="uk-article-divider">
 
                             <h2>Color modifiers</h2>
@@ -189,14 +191,21 @@
 
                             <hr class="uk-article-divider">
 
-                            <h3>Expand</h3>
+                            <h3>Full width button</h3>
 
-                            <p>Add the <code>.uk-button-expand</code> class and the button will behave like a block element and take up full width.</p>
+                            <p>Add the <code>.uk-width-1-1</code> class from the <a href="grid.html">Grid component</a> and the button will take up full width.</p>
+
+                            <h3 class="tm-article-subtitle">Example</h3>
 
                             <p>
-                                <button class="uk-button uk-button-large uk-button-expand" type="button">Button expand</button>
-                                <button class="uk-button uk-button-primary uk-button-large uk-button-expand" type="button">Button expand</button>
+                                <button class="uk-button uk-button-large uk-width-1-1 uk-margin-small-bottom" type="button">Button</button>
+                                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="button">Button</button>
                             </p>
+
+                            <h3 class="tm-article-subtitle">Markup</h3>
+
+<pre><code>&lt;button class="uk-button uk-width-1-1 uk-margin-small-bottom"&gt;...&lt;/button&gt;
+&lt;button class="uk-button uk-width-1-1"&gt;...&lt;/button&gt;</code></pre>
 
                             <hr class="uk-article-divider">
 
@@ -330,7 +339,7 @@
 
                             <h3 class="tm-article-subtitle">Example</h3>
 
-                            <div class="uk-margin">
+                            <div class="uk-margin" data-uk-margin>
 
                                 <div class="uk-button-dropdown" data-uk-dropdown>
                                     <button class="uk-button">Hover <i class="uk-icon-caret-down"></i></button>
@@ -435,7 +444,7 @@
 
                             <h4 class="tm-article-subtitle">Example</h4>
 
-                            <div class="uk-margin">
+                            <div class="uk-margin" data-uk-margin>
                                 <div class="uk-button-group">
                                     <button class="uk-button">Button</button>
                                     <div data-uk-dropdown="{mode:'click'}">
@@ -658,13 +667,14 @@
                     </li>
                     <li class="uk-parent"><a href="#">Add-ons</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="addons_markdownarea.html">Markdown Area</a></li>
+                            <li><a href="addons_markdownarea.html">Markdown area</a></li>
                             <li><a href="addons_sortable.html">Sortable</a></li>
                             <li><a href="addons_datepicker.html">Datepicker</a></li>
                             <li><a href="addons_timepicker.html">Timepicker</a></li>
                             <li><a href="addons_sticky.html">Sticky</a></li>
                             <li><a href="addons_notify.html">Notify</a></li>
-                            <li><a href="addons_form-password.html">Form Password</a></li>
+                            <li><a href="addons_form-password.html">Form password</a></li>
+                            <li><a href="addons_form-file.html">Form file</a></li>
                         </ul>
                     </li>
                 </ul>
